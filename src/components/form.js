@@ -23,7 +23,7 @@ class FormA extends React.Component{
 
 
 
-    sumbitFormA=(event) => {
+    sumbitFormA = (event) => {
         event.preventDefault();
         this.transform(event)
     }
