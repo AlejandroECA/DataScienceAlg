@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Bigelow+Rules&display=swap');
+
+.font{
+    font-family: 'Bigelow Rules', cursive;
+    font-size: 3rem;
+    color: black;
+}
+
+.robotGif{
+    background-image: url(https://media.giphy.com/media/3o72F1FXi8MxXbyIjS/giphy.gif) ;
+    background-repeat: no-repeat;
+    background-position-x: 50%;
+    background-position-y: 30%;
+
+    background-size: cover;
+}
+

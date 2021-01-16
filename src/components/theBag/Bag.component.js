@@ -4,7 +4,9 @@ import Card from 'reactstrap/lib/Card';
 import CardBody from 'reactstrap/lib/CardBody';
 import CardText from 'reactstrap/lib/CardText';
 import CardTitle from 'reactstrap/lib/CardTitle';
-
+import {Container} from 'reactstrap'
+import './Bag.style.css'
+import { ReusableForm } from "../form/form.component";
 
 
 
@@ -16,6 +18,7 @@ class FormA extends React.Component{
             name :'',
             cost :'',
             weight: '',
+            bagSize:'',
 
             objectList: []
         }
@@ -49,6 +52,11 @@ class FormA extends React.Component{
                 weight : n.target.value,
             })
             break
+            case 'bagSize':
+                this.setState({
+                    bagSize : n.target.value,
+                })
+            break
             default:
                 return ""
         }
@@ -58,10 +66,11 @@ class FormA extends React.Component{
     
     
     removeLast = () => {
+        
         this.setState({
-            objectList: this.state.objectList
-        })
-        console.log(JSON.stringify(this.state.objectList));
+            objectList: this.state.objectList.slice(0,-1)
+        },w => console.log(JSON.stringify(this.state.objectList)))
+        
     }
 
 
@@ -82,39 +91,30 @@ class FormA extends React.Component{
     }
 
     render(){
+
     return (
         <>
-    
+        <Container fluid className='tittleForm'>
+            <h1>BAG OF THINGS</h1>
+        </Container>
+        
         <Form className='m-3'>
-            <FormGroup>
-                <Label htmlFor="bagSize">BAG SIZE</Label>
-                <Input type="text" id='bagSize' name='bagSize' placeholder='Bag Size' required/>
-            </FormGroup>
-            <Button type='submit' value='submit' color='primary'>Submit</Button>
+            <ReusableForm id={'bagSize'} placeholder={'Bag Size'} changueHandler={this.addInput} />
         </Form>
+
+        <p className='ml-5'>For a Bag Size of:  {this.state.bagSize}</p>
 
         <Form onSubmit={this.sumbitFormA} className='m-3'>
 
-            <FormGroup>
-                <Label htmlFor="name">Name</Label>
-                <Input type="text" id='name' name='name' placeholder='Name of the object' onChange={(n) => this.addInput(n)} required/>
-            </FormGroup>
+            <ReusableForm id={'name'} placeholder={'Name'} changueHandler={this.addInput} />
+            <ReusableForm id={'cost'} placeholder={'Cost'} changueHandler={this.addInput} />
+            <ReusableForm id={'weight'} placeholder={'Weight'} changueHandler={this.addInput} />
 
-            <FormGroup>
-                <Label htmlFor="cost">Cost</Label>
-                <Input type="text" id='cost' name='cost' placeholder='Cost of the object' onChange={(c) => this.addInput(c)} required/>
-            </FormGroup>
-
-            <FormGroup>
-                <Label htmlFor="weight">Weight</Label>
-                <Input type="text" id='weight' name='weight' placeholder='Weight of the object' onChange={(w) => this.addInput(w)} required/>
-            </FormGroup>
-
-                <Button type='submit' value='submit' color='primary'>Add</Button>
+            <Button type='submit' value='submit' color='primary'>Add</Button>
         </Form>
         <Card>
             <CardBody>
-                <CardTitle>List of Objects</CardTitle>
+                <CardTitle>List of Objectsfor a Bag Size of:  {this.state.bagSize}</CardTitle>
                 <CardText>{JSON.stringify(this.state.objectList)}</CardText>
                 <Button type='reset' value='submit' color='danger' onClick = {this.removeLast}>Remove Last</Button>
             </CardBody>
