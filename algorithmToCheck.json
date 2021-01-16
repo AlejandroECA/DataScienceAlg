@@ -1,0 +1,36 @@
+{
+  "algorithms": [
+    {
+      "id":1,
+      "name": "Bag of things",
+      "title": "bagofthings",
+      "algorithmUsed": "greedy"
+    },
+    {
+        "id":2,
+        "name": "Memoization",
+        "title": "memoization",
+        "algorithmUsed": "..."
+      },
+      {
+        "id":3,
+        "name": "Search Tree",
+        "title": "searchTree",
+        "algorithmUsed": "brute Force"
+      },
+      {
+        "id":5,
+        "name": "Factorial",
+        "title": "Factorial",
+        "algorithmUsed": "Recursiveness"
+      } 
+  ],
+  "x": [
+    {
+
+    }
+  ],
+  "y": {
+
+  }
+}
