@@ -51,26 +51,26 @@ class ListOfCards extends React.Component {
 
         return(
             <>
-                <Container className="themed-container">
-                    <Col >
-                        <Row>
-                            <h1 className='ml-auto mr-auto'>Algorithm List</h1>
-                        </Row>
-                        <Row className="row">
+                <Container>
+                    <Row >
+                        <Col xs={{size:'12',offset:'4'}}>
+                            <h1 className='ml-auto'>Algorithm List</h1>
+                        </Col>
+                        <Col xs='12'>
                             <SearchBox handleChange={this.checkAndFind} placeholder={'Search Algorithms'}/>
                         
-                        </Row>
-                    </Col>
+                        </Col>
+                    </Row>
                 </Container>
                 <Container>
-                    <Col >
-                        <Row className='card-list'>
-                            {fiterAlg.map( (x) => 
-                                <CardIndividual
-                                key={x.id} index={x.id} x={x} />)
-                            }
-                        </Row>
-                    </Col>
+                    <Row >
+                        {fiterAlg.map( (x) => 
+                        <Col xs='6' sm='6' md='4' lg='3'className='card-list'>
+                            <CardIndividual
+                            key={x.id} index={x.id} x={x} />
+                        </Col>
+                        )}      
+                    </Row>
                 </Container>
             </>
         )
