@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Bigelow+Rules&display=swap');
 
 .font{
-    font-family: 'Bigelow Rules', cursive;
+    font-family: 'Bigelow Rules';
     font-size: 3rem;
     color: black;
+    
 }
 
 .robotGif{
@@ -13,5 +14,29 @@
     background-position-y: 30%;
 
     background-size: cover;
+
+    transform: translate(0);
+    transition:  transform 0 25s ease-out ;
+}
+
+.robotGif:hover{
+    color: black;
+    text-decoration: none;
+
+    
+
+}
+
+.textTitle:hover{
+    transform: scale(1.05);
+    padding-left: 1rem;
+    color: black;
+
+
+}
+
+
+.font:hover{
+    text-decoration: none;
 }
 

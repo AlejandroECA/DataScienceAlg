@@ -19,3 +19,8 @@
 .card-container:hover{
     transform: scale(1.05);
 }
+
+.linkto:hover{
+    color: black;
+    text-decoration: none;
+}

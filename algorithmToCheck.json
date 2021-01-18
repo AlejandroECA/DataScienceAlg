@@ -2,8 +2,8 @@
   "algorithms": [
     {
       "id":1,
-      "name": "Bag of things",
-      "title": "bagofthings",
+      "name": "Knapsack",
+      "title": "Knapsack",
       "algorithmUsed": "greedy"
     },
     {

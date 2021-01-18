@@ -25,7 +25,7 @@ const Main = () => {
     <div className='font'>
         <Link to='/home' className='font'>
         <Jumbotron className='robotGif'>
-            <h1 className='ml-auto mr-auto'>Algorithms...</h1>
+            <h1 className='ml-auto mr-auto textTitle'>Algorithms...</h1>
         </Jumbotron>
         </Link>
 
