@@ -23,12 +23,19 @@ const Main = () => {
             <ListOfCards />
         )
     }
+
+    const ShopSection = () => {
+        return(
+            <ShopHome />
+        )
+    }
     
     return (
     <div className='font'>
+
         <Link to='/home' className='font'>
             <Jumbotron className='robotGif m-0'>
-                <h1 className='ml-auto mr-auto textTitle'>Algorithms...</h1>
+                <h1 className='ml-auto mr-auto textTitle'>Awesome title...</h1>
             </Jumbotron>
         </Link>
         <Navig />
@@ -36,10 +43,10 @@ const Main = () => {
         <Switch>
             <Route path='/home' component={Home} />
             <Route path='/1' component={BagAlg} />
+            <Route path='/shop' component={ShopSection} />
             <Redirect to='/home' />
         </Switch>
 
-        <ShopHome />
     </div>
     )  
 }

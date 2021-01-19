@@ -54,7 +54,7 @@ class ListOfCards extends React.Component {
                 <Container>
                     <Row >
                         <Col xs='12' className='text-center'>
-                            <h1 className='ml-auto'>Algorithm List</h1>
+                            <h1 className=' titleOfCards ml-auto'>Algorithm List</h1>
                         </Col>
                         <Col xs='12'>
                             <SearchBox handleChange={this.checkAndFind} placeholder={'Search Algorithms'}/>

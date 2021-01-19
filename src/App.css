@@ -2,13 +2,14 @@
 
 .font{
     font-family: 'Bigelow Rules';
-    font-size: 3rem;
+    font-size: 2rem;
     color: black;
+    
     
 }
 
 .robotGif{
-    background-image: url(https://media.giphy.com/media/3o72F1FXi8MxXbyIjS/giphy.gif) ;
+    background-image: url(https://wallpapercave.com/wp/wp8093286.jpg) ;
     background-repeat: no-repeat;
     background-position-x: 50%;
     background-position-y: 30%;
@@ -20,17 +21,26 @@
 }
 
 .robotGif:hover{
-    color: black;
+    color: white;
     text-decoration: none;
 
     
 
 }
 
+.textTitle{
+    font-weight: bold;
+    font-size: 5rem;
+    text-shadow: black 2px 2px;
+    color: white;
+}
+
 .textTitle:hover{
     transform: scale(1.05);
     padding-left: 1rem;
-    color: black;
+    color: white;
+    font-weight: bold;
+    font-size: 5rem;
 
 
 }

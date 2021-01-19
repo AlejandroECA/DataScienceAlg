@@ -8,7 +8,7 @@ import {NavLink} from 'react-router-dom'
 export const NavigReus =({link,name})=> {
     return(
         <NavItem>
-            <NavLink className='nav-link' to={`/${link}`}>
+            <NavLink className='nav-link navItems' to={`/${link}`}>
                 <i className={`fa fa-${link} fa-lg`}></i> {name}
             </NavLink>
         </NavItem>
