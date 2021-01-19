@@ -38,7 +38,7 @@ class ListOfCards extends React.Component {
 
 
     checkAndFind= (e) => {
-        this.setState({searchField:e.target.value},()=> console.log(this.state)
+        this.setState({searchField: e.target.value}
         )
     }
 
@@ -53,7 +53,7 @@ class ListOfCards extends React.Component {
             <>
                 <Container>
                     <Row >
-                        <Col xs={{size:'12',offset:'4'}}>
+                        <Col xs='12' className='text-center'>
                             <h1 className='ml-auto'>Algorithm List</h1>
                         </Col>
                         <Col xs='12'>

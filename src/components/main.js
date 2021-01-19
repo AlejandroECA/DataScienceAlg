@@ -4,6 +4,9 @@ import ListOfCards from "./card-list/ListOfCards.component";
 import '../App.css';
 import {Jumbotron} from 'reactstrap';
 import { Switch, Route, Redirect, withRouter,Link } from 'react-router-dom';
+import Navig from '../components/navBar/Navig.component'
+
+import ShopHome from './Shop/home/ShopHome.component'
 
 
 const Main = () => {
@@ -24,10 +27,11 @@ const Main = () => {
     return (
     <div className='font'>
         <Link to='/home' className='font'>
-        <Jumbotron className='robotGif'>
-            <h1 className='ml-auto mr-auto textTitle'>Algorithms...</h1>
-        </Jumbotron>
+            <Jumbotron className='robotGif m-0'>
+                <h1 className='ml-auto mr-auto textTitle'>Algorithms...</h1>
+            </Jumbotron>
         </Link>
+        <Navig />
 
         <Switch>
             <Route path='/home' component={Home} />
@@ -35,7 +39,7 @@ const Main = () => {
             <Redirect to='/home' />
         </Switch>
 
-        
+        <ShopHome />
     </div>
     )  
 }
