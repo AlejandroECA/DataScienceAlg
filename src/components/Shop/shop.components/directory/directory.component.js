@@ -1,6 +1,7 @@
 import React from 'react';
 import './directory.styles.scss'
 import MenuItem from '../menu-items/menu-item.component'
+import {withRouter} from 'react-router-dom'
 
 class Directory extends React.Component {
 
@@ -34,4 +35,4 @@ class Directory extends React.Component {
     }
 }
 
-export default Directory
+export default withRouter(Directory)

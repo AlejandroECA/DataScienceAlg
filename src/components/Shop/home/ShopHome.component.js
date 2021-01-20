@@ -1,6 +1,6 @@
 import React from 'react';
 import './ShopHome.styles.scss'
-import Directory from './shop.components/directory/directory.component'
+import Directory from '../shop.components/directory/directory.component'
 
 const ShopHome = () => {
 

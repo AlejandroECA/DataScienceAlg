@@ -8,27 +8,10 @@ import Navig from '../components/navBar/Navig.component'
 
 import ShopHome from './Shop/home/ShopHome.component'
 
+import ShopList from './Shop/shopList/shopList.component'
 
 const Main = () => {
 
-
-    const BagAlg =() =>{
-        return(
-            <FormA />
-        )
-    }
-
-    const Home =() =>{
-        return(
-            <ListOfCards />
-        )
-    }
-
-    const ShopSection = () => {
-        return(
-            <ShopHome />
-        )
-    }
     
     return (
     <div className='font'>
@@ -41,10 +24,10 @@ const Main = () => {
         <Navig />
 
         <Switch>
-            <Route path='/home' component={Home} />
-            <Route path='/1' component={BagAlg} />
-            <Route path='/shop' component={ShopSection} />
-            <Redirect to='/home' />
+            <Route exact path='/home' component={ListOfCards} />
+            <Route path='/1' component={FormA} />
+            <Route exact path='/shop' component={ShopHome} />
+            <Route path='/Ramen' component={ShopList} />
         </Switch>
 
     </div>
