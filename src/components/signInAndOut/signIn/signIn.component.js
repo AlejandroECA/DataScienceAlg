@@ -5,6 +5,8 @@ import CustomButton from '../custom-button/customButton.component'
 
 import './sigIn.styles.scss'
 
+import {signInWithGoogle} from '../../../firebase/firebase.utils'
+
 
 
 
@@ -60,7 +62,8 @@ class SignIn extends React.Component{
                     />
 
 
-                    <CustomButton>Sign In</CustomButton>
+                    <CustomButton type='submit'>Sign In</CustomButton>
+                    <CustomButton onClick={signInWithGoogle} >{' '}Sign In with Google{' '}</CustomButton>
 
                 </form>
 
