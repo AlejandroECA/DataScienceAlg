@@ -9,11 +9,24 @@ const Header = () =>{
         <React.Fragment>
             <div className='header'>
                 <Link className='logo-container' to="/home">
-                    <img className='logo' src='https://media.giphy.com/media/7A4HfQ1P53f3mP1pec/giphy.gif' />            
+                    <img className='logo' src='https://media.giphy.com/media/aLI73eIgT41b2/giphy.gif' />            
                 </Link>
                 <div className='options'>
+
+                    <Link className='option' to = '/home'>
+                        HOME
+                    </Link>
+
                     <Link className='option' to = '/shop'>
                         SHOP
+                    </Link>
+
+                    <Link className='option' to = '/alg'>
+                        ALG-LIST
+                    </Link>
+
+                    <Link className='option' to = '/sign'>
+                        SIGN IN
                     </Link>
 
                     <Link className='option' to = '/shop'>

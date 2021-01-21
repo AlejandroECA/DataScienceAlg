@@ -7,6 +7,7 @@ import CardTitle from 'reactstrap/lib/CardTitle';
 import {Container} from 'reactstrap'
 import './Bag.style.css'
 import { ReusableForm } from "../form/form.component";
+import DefaulTitle from '../title/title.component';
 
 
 
@@ -36,30 +37,37 @@ class FormA extends React.Component{
 
         console.log(n.target.id);
 
-        switch (n.target.id){
-            case 'name':
-            this.setState({
-                name : n.target.value,
-            })
-            break
-            case 'cost':
-            this.setState({
-                cost : n.target.value,
-            })
-            break
-            case 'weight':
-            this.setState({
-                weight : n.target.value,
-            })
-            break
-            case 'bagSize':
-                this.setState({
-                    bagSize : n.target.value,
-                })
-            break
-            default:
-                return ""
-        }
+        const { value, name } = n.target
+
+        this.setState({
+            [name]: value
+        })
+        
+
+        // switch (n.target.id){
+        //     case 'name':
+        //     this.setState({
+        //         name : n.target.value,
+        //     })
+        //     break
+        //     case 'cost':
+        //     this.setState({
+        //         cost : n.target.value,
+        //     })
+        //     break
+        //     case 'weight':
+        //     this.setState({
+        //         weight : n.target.value,
+        //     })
+        //     break
+        //     case 'bagSize':
+        //         this.setState({
+        //             bagSize : n.target.value,
+        //         })
+        //     break
+        //     default:
+        //         return ""
+        // }
         
     }
 
@@ -94,9 +102,7 @@ class FormA extends React.Component{
 
     return (
         <>
-        <Container fluid className='tittleForm'>
-            <h1>BAG OF THINGS</h1>
-        </Container>
+        <DefaulTitle title={'Bag of things'} />
         
         <Form className='m-3'>
             <ReusableForm id={'bagSize'} placeholder={'Bag Size'} changueHandler={this.addInput} />

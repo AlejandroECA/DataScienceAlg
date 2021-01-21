@@ -30,8 +30,8 @@ class Navig extends React.Component {
 
   render() {
     return (
-      <Container>
-        <Navbar light expand="lg">
+      <Container style={{backgroundColor:'white',opacity:'70%'}} className='mt-2 mb-3' fluid>
+        <Navbar light expand="md">
           <NavbarBrand href="/home">
             <img
               src="https://media.giphy.com/media/JmPabUqU22FAbQYkzN/giphy.gif"
@@ -47,7 +47,9 @@ class Navig extends React.Component {
             <Nav>
               <NavigReus link={"home"} name={"Home"} />
               <NavigReus link={"shop"} name={"Shop"} />
-              <NavigReus link={"info"} name={"About Us"} />
+              <NavigReus link={"alg"} name={"Alg-list"} />
+              <NavigReus link={"info"} name={"CONTACT"} />
+
             </Nav>
           </Collapse>
         </Navbar>

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import DefaulTitle from '../../title/title.component'
+
 import PreviewCollection from '../preview-collection/preview.colletion.component'
 
 class ShopList extends React.Component {
@@ -29,7 +31,7 @@ class ShopList extends React.Component {
 
         return(
             <div>
-                <h1 style={{backgroundColor:'white', opacity:'70%'}}>Ramen</h1>
+                <DefaulTitle title={'Ramen'} />
                 <div>
                 {collections.map(({id, ...otherProps}) => (
                         <PreviewCollection id={id} {...otherProps} />

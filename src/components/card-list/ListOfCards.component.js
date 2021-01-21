@@ -3,6 +3,7 @@ import './ListOfCards.style.css';
 import {CardIndividual} from '../card/CardIndividual.component';
 import {Container,Col,Row} from 'reactstrap'
 import {SearchBox} from '../searchBox/searchBox.component'
+import DefaulTitle from '../title/title.component';
 
 
 class ListOfCards extends React.Component {
@@ -53,16 +54,14 @@ class ListOfCards extends React.Component {
             <>
                 <Container>
                     <Row >
-                        <Col xs='12' className='text-center'>
-                            <h1 className=' titleOfCards ml-auto'>Algorithm List</h1>
-                        </Col>
+                        <DefaulTitle title={'Algorithms List'} />
                         <Col xs='12'>
                             <SearchBox handleChange={this.checkAndFind} placeholder={'Search Algorithms'}/>
                         
                         </Col>
                     </Row>
                 </Container>
-                
+
                 <Container>
                     <Row >
                         {fiterAlg.map( (x) => 
