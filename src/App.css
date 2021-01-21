@@ -13,41 +13,14 @@ body{
     
 }
 
-.robotGif{
-    background-image: url(https://wallpapercave.com/wp/wp8093286.jpg) ;
-    background-repeat: no-repeat;
-    background-position-x: 50%;
-    background-position-y: 30%;
-
-    background-size: cover;
-
-    transform: translate(0);
-    transition:  transform 0 25s ease-out ;
-}
-
-.robotGif:hover{
-    color: white;
+.font a{
     text-decoration: none;
-
-    
-
+    color:black;
 }
 
-.textTitle{
-    font-weight: bold;
-    font-size: 5rem;
-    text-shadow: black 2px 2px;
-    color: white;
-}
-
-.textTitle:hover{
-    transform: scale(1.05);
-    padding-left: 1rem;
-    color: white;
-    font-weight: bold;
-    font-size: 5rem;
-
-
+.font a:hover{
+    text-decoration: none;
+    color:black;
 }
 
 

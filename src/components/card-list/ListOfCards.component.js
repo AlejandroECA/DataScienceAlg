@@ -62,6 +62,7 @@ class ListOfCards extends React.Component {
                         </Col>
                     </Row>
                 </Container>
+                
                 <Container>
                     <Row >
                         {fiterAlg.map( (x) => 

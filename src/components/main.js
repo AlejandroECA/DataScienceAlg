@@ -1,14 +1,15 @@
 import React from 'react';
+import { Switch, Route, Redirect, withRouter,Link } from 'react-router-dom';
+
+
 import FormA from './theBag/Bag.component'
 import ListOfCards from "./card-list/ListOfCards.component";
-import '../App.css';
-import {Jumbotron} from 'reactstrap';
-import { Switch, Route, Redirect, withRouter,Link } from 'react-router-dom';
 import Navig from '../components/navBar/Navig.component'
-
 import ShopHome from './Shop/home/ShopHome.component'
-
 import ShopList from './Shop/shopList/shopList.component'
+import Header from './header/header.component'
+
+import '../App.css';
 
 const Main = () => {
 
@@ -16,11 +17,7 @@ const Main = () => {
     return (
     <div className='font'>
 
-        <Link to='/home' className='font'>
-            <Jumbotron className='robotGif m-0'>
-                <h1 className='ml-auto mr-auto textTitle'>Awesome title...</h1>
-            </Jumbotron>
-        </Link>
+        <Header />
         <Navig />
 
         <Switch>
