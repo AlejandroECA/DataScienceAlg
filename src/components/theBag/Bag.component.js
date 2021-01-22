@@ -1,10 +1,9 @@
 import React from 'react';
-import {Button, Form, FormGroup, Label, Input} from 'reactstrap'
+import {Button, Form} from 'reactstrap'
 import Card from 'reactstrap/lib/Card';
 import CardBody from 'reactstrap/lib/CardBody';
 import CardText from 'reactstrap/lib/CardText';
 import CardTitle from 'reactstrap/lib/CardTitle';
-import {Container} from 'reactstrap'
 import './Bag.style.css'
 import { ReusableForm } from "../form/form.component";
 import DefaulTitle from '../title/title.component';

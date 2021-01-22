@@ -6,10 +6,10 @@ const FormInput = ({ handleChange, label , ...restOfprops}) => {
     return(
         <div className='group'>
             <input className='form-input' 
-            onChange={handleChange} {...restOfprops} />
+            onChange={handleChange} {...restOfprops}/>
                 {label?
-                (<label className={`${
-                    restOfprops.value.length ? 'shrink' : ''} 
+                (<label className={
+                    `${restOfprops.value.length? 'shrink' : ''}  
                 form-input-label`}>
                     {label}
                 </label>
