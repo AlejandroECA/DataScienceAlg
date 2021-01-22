@@ -3,8 +3,9 @@ import './header.styles.scss'
 import {Link} from 'react-router-dom'
 import {Jumbotron} from 'reactstrap';
 
+import {auth} from '../../firebase/firebase.utils';
 
-const Header = () =>{
+const Header = ({currentUser}) =>{
     return(
         <React.Fragment>
             <div className='header'>
@@ -22,12 +23,18 @@ const Header = () =>{
                     </Link>
 
                     <Link className='option' to = '/alg'>
-                        ALG-LIST
+                        ALG. LIST
                     </Link>
+                    
+                    {
+                        currentUser?
+                            <div className='option' onClick={()=> auth.signOut()}>SIGN OUT</div>:
+                            <Link className='option' to = '/sign'>
+                            SIGN IN
+                            </Link>
 
-                    <Link className='option' to = '/sign'>
-                        SIGN IN
-                    </Link>
+                    }
+
 
                     <Link className='option' to = '/shop'>
                         CONTACT

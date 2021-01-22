@@ -10,35 +10,57 @@ import ShopList from './Shop/shopList/shopList.component'
 import Header from './header/header.component'
 import SignInAndOut from './signInAndOut/signInAndOut.component'
 
+import { auth } from '../firebase/firebase.utils'
+
 import '../App.css';
 
-const Main = () => {
+class Main extends React.Component {
+    constructor(){
+        super()
+        this.state = {
+            currentUser: null
+        }
+    }
 
+    unsubscribeFromAuth = null;
 
-    const Home = () => {
+    componentDidMount(){
+
+        this.unsubscribeFromAuth = auth.onAuthStateChanged( user =>{
+            this.setState({ currentUser: user })
+
+            console.log(user);
+        });
+    }
+
+    componentWillUnmount(){
+        this.unsubscribeFromAuth();
+    }
+
+    Home = () => {
         return (
             <div></div>
         )
-        
     }
     
+    render(){
     return (
-    <div className='font'>
+        <div className='font'>
 
-        <Header />
-        <Navig />
+            <Header currentUser={this.state.currentUser} />
+            <Navig />
 
-        <Switch>
-            <Route exact path='/home' component={Home} />
-            <Route path='/alg' component={ListOfCards} />
-            <Route path='/1' component={FormA} />
-            <Route exact path='/shop' component={ShopHome} />
-            <Route path='/Ramen' component={ShopList} />
-            <Route path='/sign' component={SignInAndOut} />
-        </Switch>
+            <Switch>
+                <Route exact path='/home' component={this.Home} />
+                <Route path='/alg' component={ListOfCards} />
+                <Route path='/1' component={FormA} />
+                <Route exact path='/shop' component={ShopHome} />
+                <Route path='/Ramen' component={ShopList} />
+                <Route path='/sign' component={SignInAndOut} />
+            </Switch>
 
-    </div>
-    )  
+        </div>
+    )}
 }
 
 
