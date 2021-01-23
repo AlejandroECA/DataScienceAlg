@@ -34,7 +34,7 @@ class Navig extends React.Component {
         <Navbar light expand="md">
           <NavbarBrand href="/home">
             <img
-              src="https://media.giphy.com/media/JmPabUqU22FAbQYkzN/giphy.gif"
+              src="https://media.giphy.com/media/SwUCMUVZkiLyDRsJL3/giphy.gif"
               alt="robotlogo"
               width="50px"
               height="50px"

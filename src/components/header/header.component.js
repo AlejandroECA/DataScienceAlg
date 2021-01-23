@@ -10,7 +10,7 @@ const Header = ({currentUser}) =>{
         <React.Fragment>
             <div className='header'>
                 <Link className='logo-container' to="/home">
-                    <img className='logo' src='https://media.giphy.com/media/aLI73eIgT41b2/giphy.gif' />            
+                    <img className='logo' src='https://media.giphy.com/media/SwUCMUVZkiLyDRsJL3/giphy.gif' />            
                 </Link>
                 <div className='options'>
 
@@ -42,13 +42,15 @@ const Header = ({currentUser}) =>{
                 </div>
             </div>
 
-            <Link to='/home'>
-                <Jumbotron className='robotGif m-0'>
-                    <h1 className='ml-auto mr-auto textTitle'>Awesome title...</h1>
-                </Jumbotron>
-            </Link>
+
         </React.Fragment>
     )
 }
+
+// <Link to='/home'>
+// <Jumbotron className='robotGif m-0'>
+//     <h1 className='ml-auto mr-auto textTitle'>Awesome title...</h1>
+// </Jumbotron>
+// </Link>
 
 export default Header

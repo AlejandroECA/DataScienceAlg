@@ -1,7 +1,7 @@
 .card-container{
     display: flex;
     flex-direction: column;
-    background-color: rgb(61, 158, 196);
+    background: linear-gradient(#c0bdbd, #707072);
     border: 1px solid black;
     border-radius: 5px;
     padding:  0px;

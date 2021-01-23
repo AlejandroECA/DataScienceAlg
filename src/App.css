@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bigelow+Rules&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&display=swap');
 
 
 body{
@@ -6,7 +6,7 @@ body{
 }
 
 .font{
-    font-family: 'Bigelow Rules';
+    font-family: 'Barlow Condensed', sans-serif;
     font-size: 2rem;
     color: black;
     
