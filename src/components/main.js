@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route,  withRouter} from 'react-router-dom';
+import { Switch, Route,  withRouter, Redirect} from 'react-router-dom';
 
 
 import FormA from './theBag/Bag.component'
@@ -16,6 +16,7 @@ import { connect } from 'react-redux';
 import { setCurrentUser } from '../redux/user/users.actions'
 
 import '../App.css';
+import SignUp from './signInAndOut/sign-up/sign-up.component';
 
 class Main extends React.Component {
 
@@ -71,15 +72,26 @@ class Main extends React.Component {
                 <Route path='/1' component={FormA} />
                 <Route exact path='/shop' component={ShopHome} />
                 <Route path='/Ramen' component={ShopList} />
-                <Route path='/sign' component={SignInAndOut} />
+
+                <Route exact path='/sign' render={() => this.props.currentUser? 
+                    (<Redirect to='/' />):(<SignInAndOut />)} 
+                />
+                
             </Switch>
 
         </div>
     )}
 }
 
+const mapStateToProps = ({ user }) => ({
+    currentUser: user.currentUser
+})
+
 const mapDispatchToProps = dispatch => ({
     setCurrentUser: user => dispatch(setCurrentUser(user))
 })
 
-export default connect(null,mapDispatchToProps)(withRouter(Main))
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps)
+    (withRouter(Main))
