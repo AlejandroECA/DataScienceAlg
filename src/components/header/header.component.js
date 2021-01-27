@@ -6,7 +6,10 @@ import {auth} from '../../firebase/firebase.utils';
 
 import { connect } from 'react-redux'
 
-const Header = ({currentUser}) =>{
+import CartIcon from '../cart-icon/cart-icon.component'
+import CartDropdown from '../cart-dropdown/cart-dropdown.component'
+
+const Header = ({currentUser, hidden}) =>{
     return(
         <React.Fragment>
             <div className='header'>
@@ -40,7 +43,12 @@ const Header = ({currentUser}) =>{
                     <Link className='option' to = '/shop'>
                         CONTACT
                     </Link>
+
+                    <CartIcon />
+
                 </div>
+                { hidden? null:<CartDropdown />}
+                
             </div>
 
 
@@ -54,8 +62,9 @@ const Header = ({currentUser}) =>{
 // </Jumbotron>
 // </Link>
 
-const mapStateToProps = (state) => ({
-    currentUser: state.user.currentUser
+const mapStateToProps = ({user: {currentUser},cart: {hidden}}) => ({
+    currentUser,
+    hidden
 })
 
 export default connect(mapStateToProps)(Header);
