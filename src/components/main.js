@@ -12,37 +12,35 @@ import SignInAndOut from './signInAndOut/signInAndOut.component'
 
 import { auth, createUserProfileDocument } from '../firebase/firebase.utils'
 
+import { connect } from 'react-redux';
+import { setCurrentUser } from '../redux/user/users.actions'
+
 import '../App.css';
 
 class Main extends React.Component {
-    constructor(){
-        super()
-        this.state = {
-            currentUser: null
-        }
-    }
+
 
     unsubscribeFromAuth = null;
 
     componentDidMount(){
+
+        const {setCurrentUser} = this.props
 
         this.unsubscribeFromAuth = auth.onAuthStateChanged( async userAuth => 
         {
             if(userAuth){
                 const userRef = await createUserProfileDocument(userAuth)
                 userRef.onSnapshot(snapShot => {
-                    this.setState({
+                    setCurrentUser({
                         currentUser: {
                             id: snapShot.id,
                             ...snapShot.data()
                         }
-                    },()=>{console.log(this.state);})
+                    },()=>{console.log(setCurrentUser);})
                 });
             }
             else{
-                this.setState({
-                    currentUser: userAuth
-                },console.log(this.state))       
+                setCurrentUser(userAuth)       
             }
         })
         
@@ -64,7 +62,7 @@ class Main extends React.Component {
     return (
         <div className='font'>
 
-            <Header currentUser={this.state.currentUser} />
+            <Header />
             <Navig />
 
             <Switch>
@@ -80,5 +78,8 @@ class Main extends React.Component {
     )}
 }
 
+const mapDispatchToProps = dispatch => ({
+    setCurrentUser: user => dispatch(setCurrentUser(user))
+})
 
-export default withRouter(Main)
+export default connect(null,mapDispatchToProps)(withRouter(Main))
