@@ -11,7 +11,9 @@ import { selectCartItems} from '../../redux/cart/cart.selectors'
 
 import { withRouter } from 'react-router-dom';
 
-const CartDropdown = ({cartItems, history}) => {
+import { toogleCartHidden } from '../../redux/cart/cart.actions'
+
+const CartDropdown = ({cartItems, history, dispatch }) => {
     return (
         <div className='cart-dropdown'>
             <div className='cart-items'>
@@ -22,7 +24,10 @@ const CartDropdown = ({cartItems, history}) => {
                 <span className='empty-message'>Your cart is empty</span>
             }
             </div>
-            <CustomButtom onClick={() => history.push('/checkout')}>
+            <CustomButtom onClick={() => {
+                history.push('/checkout');
+                dispatch(toogleCartHidden())
+            }}>
                 GO TO CHECK OUT
             </CustomButtom>
         </div>
@@ -34,5 +39,12 @@ const CartDropdown = ({cartItems, history}) => {
 const mapStateToProps = (state) =>({
     cartItems: selectCartItems(state)
 })
+
+// const mapDispatchToProps = dispatch = {
+//     ... short style: 
+//    why? 
+//    1 just one dispatch 
+//    2 connect add dispatch to the component as a default props
+// }
 
 export default withRouter(connect(mapStateToProps)(CartDropdown));
