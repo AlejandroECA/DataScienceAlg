@@ -22,6 +22,7 @@ const mapDispatchToProps = dispatch =>({
     toogleCartHidden: () => dispatch(toogleCartHidden())
 })
 
+//createstructureselector maybe
 const mapStateToProps = (state) => ({
     itemCount: selectCartItemsCount(state)
 })
