@@ -2,45 +2,28 @@ import React from 'react';
 
 import DefaulTitle from '../../title/title.component'
 
-import PreviewCollection from '../preview-collection/preview.colletion.component'
+import { Route , withRouter} from 'react-router-dom';
 
-class ShopList extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            collections: [],
-        }
+import CollectionsOverview from '../collections-overview/collections-overview.componenct'
 
-    }
+import CollectionPage from '../shop.components/collection/collection.component'
 
-    componentDidMount = async() => {
-        try {
-            const getDataB = await fetch('http://localhost:3000/SHOP_DATA')
-            const dataToJ = await getDataB.json()
-            this.setState({collections: dataToJ},console.log(dataToJ))
-        }
-        catch(err){
-            console.log('not possible now');
-        }
-    }
+const ShopList =({match}) => {
 
+    console.log('match',match);
 
-    render(){
-
-        const {collections} = this.state
-
-        return(
+    return(
+        <div>
+            <DefaulTitle title={'SHOP List'} />
             <div>
-                <DefaulTitle title={'Ramen'} />
-                <div>
-                {collections.map(({id, ...otherProps}) => (
-                        <PreviewCollection id={id} {...otherProps} />
-                    ))}
-                </div>
+                <Route exact path={`${match.path}`} component={CollectionsOverview} />
+                <Route path={`${match.path}/:collectionId`} component={CollectionPage} />
             </div>
-        )
-    }
+        </div>
+    )
+
 
 }
 
-export default ShopList
+
+export default withRouter(ShopList)

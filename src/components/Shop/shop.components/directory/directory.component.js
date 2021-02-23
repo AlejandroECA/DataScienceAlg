@@ -3,36 +3,27 @@ import './directory.styles.scss'
 import MenuItem from '../menu-items/menu-item.component'
 import {withRouter} from 'react-router-dom'
 
-class Directory extends React.Component {
+import {connect} from 'react-redux'
 
-    constructor(){
-        super();
-        this.state={
-            sections:[],
-        }
-    }
+import { selectDirectorySections} from '../../../../redux/directory/directory.selectors'
 
-    componentDidMount = async() => {
-        try {
-            const getDataB = await fetch('http://localhost:3000/dir')
-            const dataToJ = await getDataB.json()
-            this.setState({sections: dataToJ},console.log(dataToJ))
-        }
-        catch(err){
-            console.log('not possible now');
-        }
-    }
+import {createStructuredSelector} from 'reselect'
 
+const Directory =({sections}) => {
 
-    render(){
     return(
         <div className='directory-menu'>
-            {this.state.sections.map(({id,imageUrl,title,sub,size}) => 
-            <MenuItem key={id} title={title} subtitle={sub} imageUrl={imageUrl} size={size} />
-            )}       
+            {sections.map(({id,...otherProps}) => (
+            <MenuItem key={id} {...otherProps} />
+            ))}
         </div>
     )
-    }
 }
+    
 
-export default withRouter(Directory)
+
+const mapStateToProps = createStructuredSelector({ 
+    sections: selectDirectorySections
+})
+
+export default connect(mapStateToProps)(withRouter(Directory))

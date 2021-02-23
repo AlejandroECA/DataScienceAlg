@@ -77,11 +77,13 @@ class Main extends React.Component {
                 <Route path='/alg' component={ListOfCards} />
                 <Route path='/1' component={FormA} />
                 <Route exact path='/shop' component={ShopHome} />
-                <Route path='/Ramen' component={ShopList} />
                 <Route exact path='/checkout' component={CheckOutPage} />
                 <Route exact path='/sign' render={() => this.props.currentUser? 
                     (<Redirect to='/' />):(<SignInAndOut />)} 
                 />
+                <Route path='/shop/collection' component={ShopList} />
+
+                
                 
             </Switch>
 

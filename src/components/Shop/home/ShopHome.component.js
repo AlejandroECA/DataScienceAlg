@@ -9,6 +9,7 @@ const ShopHome = () => {
         <div className = "shophome">
             <DefaulTitle title={'Shop'} />
             <Directory />
+            
         </div>
     )
 }
