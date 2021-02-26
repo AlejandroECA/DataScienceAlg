@@ -25,7 +25,6 @@
     "sass": "^1.32.4",
     "web-vitals": "^0.2.4"
   },
-  "homepage": "/home",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
