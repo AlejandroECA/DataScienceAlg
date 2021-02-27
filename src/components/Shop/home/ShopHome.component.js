@@ -1,16 +1,18 @@
 import React from 'react';
-import './ShopHome.styles.scss'
 import Directory from '../shop.components/directory/directory.component'
 import DefaulTitle from '../../title/title.component';
+
+import {HomeShopContainer} from './shopHome.styles'
 
 const ShopHome = () => {
 
     return(
-        <div className = "shophome">
+        <HomeShopContainer>
+
             <DefaulTitle title={'Shop'} />
             <Directory />
             
-        </div>
+        </HomeShopContainer>
     )
 }
 

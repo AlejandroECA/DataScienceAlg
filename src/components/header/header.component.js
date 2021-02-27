@@ -1,6 +1,5 @@
 import React from 'react';
-import './header.styles.scss'
-import {Link} from 'react-router-dom'
+// import './header.styles.scss'
 
 import {auth} from '../../firebase/firebase.utils';
 
@@ -14,47 +13,59 @@ import {createStructuredSelector} from 'reselect'
 import { selectCartHidden } from '../../redux/cart/cart.selectors'
 import { selectCurrentUser } from '../../redux/user/user.selectors'
 
+import {
+    HeaderContainer,
+    LogoContainer,
+    OptionsContainer,
+    OptionDiv,
+    OptionLink,
+    ImgStyled
+} from './header.styles'
+
 const Header = ({currentUser, hidden}) =>{
     return(
         <React.Fragment>
-            <div className='header'>
-                <Link className='logo-container' to="/home">
-                    <img className='logo' src='https://media.giphy.com/media/SwUCMUVZkiLyDRsJL3/giphy.gif' />            
-                </Link>
-                <div className='options'>
+            <HeaderContainer>
 
-                    <Link className='option' to = '/home'>
+                <LogoContainer to="/home">
+                    <ImgStyled  src='https://media.giphy.com/media/SwUCMUVZkiLyDRsJL3/giphy.gif' />            
+                </LogoContainer>
+
+                <OptionsContainer >
+
+                    <OptionLink  to = '/home'>
                         HOME
-                    </Link>
+                    </OptionLink>
 
-                    <Link className='option' to = '/shop'>
+                    <OptionLink  to = '/shop'>
                         SHOP
-                    </Link>
+                    </OptionLink>
 
-                    <Link className='option' to = '/alg'>
+                    <OptionLink  to = '/alg'>
                         ALG. LIST
-                    </Link>
+                    </OptionLink>
                     
                     {
                         currentUser?
-                            <div className='option' onClick={()=> auth.signOut()}>SIGN OUT</div>:
-                            <Link className='option' to = '/sign'>
+                            <OptionDiv  onClick={()=> auth.signOut()}>SIGN OUT</OptionDiv>:
+                            <OptionLink  to = '/sign'>
                             SIGN IN
-                            </Link>
+                            </OptionLink>
 
                     }
 
 
-                    <Link className='option' to = '/shop'>
+                    <OptionLink  to = '/shop'>
                         CONTACT
-                    </Link>
+                    </OptionLink>
 
                     <CartIcon />
 
-                </div>
+                </OptionsContainer>
+
                 { hidden? null:<CartDropdown />}
                 
-            </div>
+            </HeaderContainer>
 
 
         </React.Fragment>
