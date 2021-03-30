@@ -56,3 +56,11 @@ export const OptionLink = styled(Link)`
 export const OptionDiv = styled.div`
     ${OptionContainerStles}
 `
+
+// i can use this one and add a property "as= 'here the element o component '"
+
+// export const OptionLink = styled(Link)`
+//     padding: 10px 15px;
+//     cursor: pointer;
+// `
+
