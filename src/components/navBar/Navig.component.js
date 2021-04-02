@@ -1,5 +1,4 @@
 import React from "react";
-import "./Navig.style.css";
 
 import {
   Nav,
@@ -7,10 +6,9 @@ import {
   Collapse,
   Navbar,
   NavbarBrand,
-  Col,
-  Row,
   Container,
 } from "reactstrap";
+import NavItem from "reactstrap/lib/NavItem";
 
 import { NavigReus } from "./NavigationReus";
 
@@ -31,7 +29,7 @@ class Navig extends React.Component {
   render() {
     return (
       <Container style={{backgroundColor:'white',opacity:'70%'}} className='mt-2 mb-3' fluid>
-        <Navbar light expand="md">
+        <Navbar light expand="lg">
           <NavbarBrand href="/home">
             <img
               src="https://media.giphy.com/media/SwUCMUVZkiLyDRsJL3/giphy.gif"
@@ -45,11 +43,12 @@ class Navig extends React.Component {
 
           <Collapse isOpen={this.state.isNavOpen} navbar>
             <Nav>
+            <NavItem>
               <NavigReus link={"home"} name={"Home"} />
-              <NavigReus link={"shop"} name={"Shop"} />
+              <NavigReus link={"shop"} name={"Shop"}/> 
               <NavigReus link={"alg"} name={"Alg-list"} />
               <NavigReus link={"info"} name={"CONTACT"} />
-
+            </NavItem>
             </Nav>
           </Collapse>
         </Navbar>

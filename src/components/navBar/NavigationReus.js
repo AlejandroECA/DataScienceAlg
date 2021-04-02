@@ -1,16 +1,14 @@
 import React from 'react'
-import './Navig.style.css'
 
-import {Nav,NavbarToggler,Collapse,NavItem, Navbar, NavbarBrand, Jumbotron, Button, Modal, ModalHeader,ModalBody, Form, FormGroup,Label} from 'reactstrap'
-import {NavLink} from 'react-router-dom'
-
+import {NavItem} from 'reactstrap'
+import {NavigStyled} from './Navig.styles'
 
 export const NavigReus =({link,name})=> {
     return(
         <NavItem>
-            <NavLink className='nav-link navItems' to={`/${link}`}>
+            <NavigStyled to={`/${link}`}>
                 <i className={`fa fa-${link} fa-lg`}></i> {name}
-            </NavLink>
+            </NavigStyled>
         </NavItem>
     )
 }

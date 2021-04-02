@@ -11,3 +11,4 @@ export const selectWholeAlg = createSelector(
     [selectALgList],
     algorithms => algorithms
 )
+

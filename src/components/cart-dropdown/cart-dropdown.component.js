@@ -1,6 +1,5 @@
 import React from 'react';
 
-import './cart-dropdown.styles.scss';
 
 import { connect } from 'react-redux'
 
@@ -13,24 +12,26 @@ import { withRouter } from 'react-router-dom';
 
 import { toogleCartHidden } from '../../redux/cart/cart.actions'
 
+import { DropDown,EmptyMessage,CartItems } from './cart-dropdown.styles'
+
 const CartDropdown = ({cartItems, history, dispatch }) => {
     return (
-        <div className='cart-dropdown'>
-            <div className='cart-items'>
+        <DropDown>
+            <CartItems>
             {
                 cartItems.length?
                 (cartItems.map(cartItem => <CartItem key={cartItem.id} item={cartItem} />))
                 :
-                <span className='empty-message'>Your cart is empty</span>
+                <EmptyMessage>Your cart is empty</EmptyMessage>
             }
-            </div>
+            </CartItems>
             <CustomButtom onClick={() => {
                 history.push('/checkout');
                 dispatch(toogleCartHidden())
             }}>
                 GO TO CHECK OUT
             </CustomButtom>
-        </div>
+        </DropDown>
     )
 }
 

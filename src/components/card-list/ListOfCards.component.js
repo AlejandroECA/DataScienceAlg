@@ -1,11 +1,12 @@
 import React from 'react';
-import './ListOfCards.style.css';
 import {CardIndividual} from '../card/CardIndividual.component';
 import {Container,Col,Row} from 'reactstrap'
 import {SearchBox} from '../searchBox/searchBox.component'
 import DefaulTitle from '../title/title.component';
 
 import {connect} from 'react-redux'
+
+import {CardList} from './ListOfCards.styles'
 
 
 const ListOfCards = ({algorithms}) => {
@@ -58,10 +59,10 @@ const ListOfCards = ({algorithms}) => {
             <Container>
                 <Row >
                     {fiterAlg.map( (x) => 
-                    <Col xs='6' sm='6' md='4' lg='3'className='card-list'>
+                    <CardList xs='6' sm='6' md='4' lg='3'>
                         <CardIndividual
                         key={x.id} index={x.id} x={x} />
-                    </Col>
+                    </CardList>
                     )}      
                 </Row>
             </Container>

@@ -1,4 +1,9 @@
-.card-container{
+import styled , {css} from "styled-components";
+import {Link} from 'react-router-dom'
+
+
+export const CardContainer = styled.div`
+
     display: flex;
     flex-direction: column;
     background: linear-gradient(#c0bdbd, #707072);
@@ -13,15 +18,18 @@
     margin-top  : 20px;
     color:white;
     align-items: center;
-    
 
-}
-
-.card-container:hover{
+    &:hover{
     transform: scale(1.05);
-}
+    }
 
-.linkto:hover{
-    color: black;
-    text-decoration: none;
-}
+
+`
+
+export const LinkCardIndividual = styled(Link)`
+    &:hover{
+        color: black;
+        text-decoration: none;
+    }   
+
+`
