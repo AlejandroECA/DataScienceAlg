@@ -21,8 +21,8 @@ const ColletionPageWithSpinner = WithSpinner(CollectionPage)
 
 class ShopList extends React.Component{
 
-    constructor(){ 
-        super();
+    constructor(props){ 
+        super(props);
         this.state = {
             loading: true
         }
@@ -36,12 +36,32 @@ class ShopList extends React.Component{
 
         const collectionRef = firestore.collection('collections');
 
-        this.unsubscribeFromSnapshot = collectionRef.onSnapshot(async snapshot => {
-            const collectionsMap = convertCollectionsSnapshotsToMap(snapshot);
-            updateCollections(collectionsMap);
-            this.setState({loading: false});
-        }
-            )
+        //.GET server way promise
+        collectionRef.get()
+        .then(
+
+            snapshot => {
+                const collectionsMap = convertCollectionsSnapshotsToMap(snapshot);
+                updateCollections(collectionsMap);
+                this.setState({loading: false});
+            }
+
+        )
+
+
+        //using URL and fetch - Super Nested :/
+        // fetch('https://firestore.googleapis.com/v1/projects/datasc-6fb40/databases/(default)/documents/collections')
+        // .then(response => response.json())
+        // .then(collections => console.log(collections))
+
+        
+        //Listener from firebase
+        // this.unsubscribeFromSnapshot = collectionRef.onSnapshot(async snapshot => {
+        //     const collectionsMap = convertCollectionsSnapshotsToMap(snapshot);
+        //     updateCollections(collectionsMap);
+        //     this.setState({loading: false});
+        // } )
+
     }
 
     render(){
