@@ -11,19 +11,17 @@ import Header from './header/header.component'
 import SignInAndOut from './signInAndOut/signInAndOut.component'
 import CheckOutPage from './checkout/checkOut.component'
 
-import { auth, createUserProfileDocument,addCollectionAndDocuments } from '../firebase/firebase.utils'
-
 import { connect } from 'react-redux';
-import { setCurrentUser } from '../redux/user/users.actions'
 
 import '../App.css';
 
-import SignUp from './signInAndOut/sign-up/sign-up.component';
+import { checkUserSession } from '../redux/user/users.actions'
 
-import { selectCurrentUser } from '../redux/user/user.selectors';
+import SignUp from './signInAndOut/sign-up/sign-up.component';
 
 import { createStructuredSelector} from 'reselect'
 
+import { selectCurrentUser} from '../redux/user/user.selectors'
 import { selectCollectioForpreview } from '../redux/shop/shop.selector'
 import {selectWholeAlg,selectAlgIndividual,selectALgList} from '../redux/algorithmsL/algorithm.selector'
 
@@ -33,30 +31,8 @@ class Main extends React.Component {
     unsubscribeFromAuth = null;
 
     componentDidMount(){
-
-        const {setCurrentUser, collectionsArray,collectionAlg} = this.props
-
-        this.unsubscribeFromAuth = auth.onAuthStateChanged( async userAuth => 
-        {
-            if(userAuth){
-                const userRef = await createUserProfileDocument(userAuth)
-                userRef.onSnapshot(snapShot => {
-                    setCurrentUser({
-                        currentUser: {
-                            id: snapShot.id,
-                            ...snapShot.data()
-                        }
-                    },()=>{console.log(setCurrentUser);})
-                });
-            }
-            
-            setCurrentUser(userAuth);
-            // addCollectionAndDocuments('algorithm',collectionAlg.algorithmList.map(({name, title,algorithmUsed}) => ({name, title,algorithmUsed})));    
-            
-        })
-        
-
-        
+        const { checkUserSession} = this.props
+        checkUserSession()
     }
 
     componentWillUnmount(){
@@ -97,14 +73,11 @@ class Main extends React.Component {
 
 const mapStateToProps = createStructuredSelector({
     currentUser: selectCurrentUser,
-    collectionsArray : selectCollectioForpreview,
-    collectionAlg : selectALgList
 
 })
 
 const mapDispatchToProps = dispatch => ({
-    setCurrentUser: user => dispatch(setCurrentUser(user)),
-
+    checkUserSession: () => dispatch(checkUserSession()),
 })
 
 export default connect(
