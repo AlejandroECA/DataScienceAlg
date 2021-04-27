@@ -1,7 +1,4 @@
 import React from 'react';
-// import './header.styles.scss'
-
-import {auth} from '../../firebase/firebase.utils';
 
 import { connect } from 'react-redux'
 

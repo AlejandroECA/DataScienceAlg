@@ -1,4 +1,4 @@
-import React from 'react';
+import React , { useEffect } from 'react';
 
 import DefaulTitle from '../../title/title.component'
 
@@ -10,7 +10,7 @@ import { fetchCollectionsStart } from '../../../redux/shop/shop.actions'
 import CollectionsOverviewContainer from '../collections-overview/collection-overview.container'
 import CollectionsPageContainer from '../shop.components/collection/collection.container'
 
-class ShopList extends React.Component{
+const ShopList = ({fetchCollectionsStart, match}) => {
 
     // constructor(props){ 
     //     super(props);
@@ -56,25 +56,24 @@ class ShopList extends React.Component{
 
     // send all of this to redux and thunk
 
-    componentDidMount(){
-        const { fetchCollectionsStart} = this.props;
+
+    useEffect(()=>{
         fetchCollectionsStart()
-    }
+    },[fetchCollectionsStart])
 
-    render(){
-        const {match} = this.props
-        return(
+
+    return(
+        <div>
+            <DefaulTitle title={'SHOP List'} />
             <div>
-                <DefaulTitle title={'SHOP List'} />
-                <div>
-                    <Route exact path={`${match.path}`} component={CollectionsOverviewContainer}/>
+                <Route exact path={`${match.path}`} component={CollectionsOverviewContainer}/>
 
-                    <Route path={`${match.path}/:collectionId`} component={CollectionsPageContainer} />
-                </div>
+                <Route path={`${match.path}/:collectionId`} component={CollectionsPageContainer} />
             </div>
-        )
-    }
+        </div>
+    )
 }
+
 
 
 
