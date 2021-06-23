@@ -1,0 +1,81 @@
+.robotGif{
+    background-image: url(https://wallpapercave.com/uwp/uwp497815.png) ;
+    background-repeat: no-repeat;
+    background-position-x: 50%;
+    background-position-y: 30%;
+
+    background-size: cover;
+
+    transform: translate(0);
+    transition:  transform 0 25s ease-out ;
+    
+
+
+    &:hover{
+        color: white;
+        text-decoration: none; 
+    }
+
+}
+
+
+.textTitle{
+
+    font-weight: bold;
+    font-size: 3rem;
+    text-shadow: black 2px 2px;
+    color: white;
+
+
+    &:hover{
+        transform: scale(1.05);
+        padding-left: 1rem;
+        color: white;
+        font-weight: bold;
+        font-size: 4rem;  
+    }
+
+    &:link{
+        color: white;
+
+    }
+
+}
+
+.header {
+
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    white-space: nowrap;
+
+    .logo{
+        height: 80px;
+        padding-bottom: 10px;
+    }
+  
+    .logo-container {
+      height: 100%;
+      width: 70px;
+      margin: 5px;
+    }
+  
+    .options {
+        
+      margin-bottom: 10px;
+      width: 50%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      font-size: 1rem;
+  
+      .option {
+        padding: 10px 15px;
+        cursor: pointer;
+      }
+    }
+  }
