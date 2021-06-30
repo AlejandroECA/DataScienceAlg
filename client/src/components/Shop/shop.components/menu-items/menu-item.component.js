@@ -1,10 +1,11 @@
 import React from 'react';
-import './menu-item.styles.scss'
-import {withRouter, Link} from 'react-router-dom'
+// import './menu-item.styles.scss'
+import {withRouter} from 'react-router-dom'
+import {MenuItemContainer} from './menu-item.styles'
 
 const MenuItem = ({title,subtitle,imageUrl,size,linkUrl,match,history}) =>{
     return(
-        <div className={`${size} menu-item`} 
+        <MenuItemContainer className={`${size} menu-item`} 
                 onClick={() => {
                     history.push(`${match.url}${linkUrl}`)
                     console.log(history);
@@ -19,7 +20,7 @@ const MenuItem = ({title,subtitle,imageUrl,size,linkUrl,match,history}) =>{
                 <span className='subtitle'>{subtitle}</span>
 
             </div>
-        </div>
+        </MenuItemContainer>
     )
 }
 

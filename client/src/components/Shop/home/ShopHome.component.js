@@ -5,7 +5,7 @@ import DefaulTitle from '../../title/title.component';
 import {HomeShopContainer} from './shopHome.styles'
 
 const ShopHome = () => {
-
+    // throw Error
     return(
         <HomeShopContainer>
 
