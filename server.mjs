@@ -3,6 +3,7 @@ import bodyParser from 'body-parser'
 import path from 'path'
 import dotenv from 'dotenv'
 import stripe from 'stripe'
+import compression from 'compression'
 
 if (process.env.NODE_ENV !== 'production'){
     dotenv.config()
@@ -15,6 +16,7 @@ stripe(process.env.STRIPE_SECRET_KEY)
 const app = express();
 const port = process.env.PORT || 5000
 
+app.use(compression())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
